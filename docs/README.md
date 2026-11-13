@@ -1,94 +1,52 @@
-# SupoClip Documentation
+# Documentação do Cadê Clips
 
-This directory is the canonical documentation hub for SupoClip.
+Este diretório reúne a documentação da base SupoClip adaptada para o Cadê Clips. A implementação ainda está em fase de validação; não considere recursos ou formatos como confirmados até testá-los no fluxo real.
 
-If you are new to the project, start here:
+## Comece por aqui
 
-1. Read [Setup](./setup.md) to get the app running.
-2. Review [Configuration](./configuration.md) to understand environment variables and operating modes.
-3. Use [App Guide](./app-guide.md) to learn the user-facing parts of the product.
-4. Use [Architecture](./architecture.md) to understand how the system works end to end.
-5. Use [Troubleshooting](./troubleshooting.md) when something goes wrong.
+1. [Teste no Windows](./TESTE_WINDOWS.md) — roteiro para instalar, iniciar e validar o fluxo no Windows.
+2. [Direção do produto](./DIRECAO_DO_PRODUTO.md) — objetivo, escopo do MVP e princípios editoriais.
+3. [Setup original](./setup.md) — arquitetura Docker, serviços e configuração geral.
+4. [Configuração](./configuration.md) — provedores, variáveis de ambiente e modos de processamento.
+5. [Guia do aplicativo](./app-guide.md) — telas e fluxos de uso.
+6. [Arquitetura](./architecture.md) — frontend, backend, worker, fila e banco.
+7. [Solução de problemas](./troubleshooting.md) — diagnóstico de falhas.
 
-## Documentation Map
+## Mapa da documentação
 
+- [Teste no Windows](./TESTE_WINDOWS.md)
+  - Docker Desktop com WSL 2
+  - Configuração de transcrição Whisper local
+  - Seleção de LLM local ou por API
+  - Primeiro teste com vídeo curto
+  - Diagnóstico e coleta de logs
+- [Direção do produto](./DIRECAO_DO_PRODUTO.md)
+  - Objetivo editorial
+  - Escopo do MVP
+  - Critérios de aceite
 - [Setup](./setup.md)
-  - Docker-first installation
-  - Local development commands
-  - First-run checklist
-  - Production-minded setup notes
-- [Video workers on other machines](./render-worker.md)
-  - What is shared (PostgreSQL, Redis, the bucket) and what is local scratch
-  - Worker-only Compose file and checks
-- [Configuration](./configuration.md)
-  - Required API keys
-  - DataFast analytics settings
-  - Processing modes
-  - Auth and monetization settings
-  - YouTube auth rotation settings
-  - Twitch and Kick import providers
-  - Feedback and email configuration
-- [App Guide](./app-guide.md)
-  - Main screens and routes
-  - Core user workflows
-  - Admin features
-  - Hosted versus self-host differences
-- [Architecture](./architecture.md)
-  - Frontend, backend, worker, Redis, PostgreSQL
-  - Queue and SSE progress flow
-  - Video processing pipeline
-  - Database model overview
+  - Instalação Docker-first
+  - Desenvolvimento local
+  - Checklist de primeira execução
+- [Configuração](./configuration.md)
+  - Chaves e provedores de IA
+  - Modos de processamento
+  - Configurações de autenticação e self-host
+- [Guia do aplicativo](./app-guide.md)
+  - Telas e fluxos principais
+  - Recursos administrativos
+- [Arquitetura](./architecture.md)
+  - Frontend, backend, worker, Redis e PostgreSQL
+  - Pipeline de processamento de vídeo
 - [API Reference](./api-reference.md)
-  - Frontend proxy routes
-  - Backend endpoints
-  - Admin and billing endpoints
-  - Notes on auth and streaming
-- [Development](./development.md)
-  - Repository layout
-  - Commands for each app
-  - Common workflows
-  - Where to modify major features
+  - Rotas frontend e endpoints backend
+- [Desenvolvimento](./development.md)
+  - Estrutura do repositório e comandos de teste
 - [Troubleshooting](./troubleshooting.md)
-  - Startup failures
-  - Stuck tasks
-  - Auth, fonts, billing, and YouTube issues
-  - Performance and recovery guidance
+  - Inicialização, tarefas, autenticação e desempenho
 
-## What SupoClip Is
+## Sobre a base técnica
 
-SupoClip is an open-source AI video clipping application. It takes long-form videos, transcribes them, uses an LLM to select the most promising short segments, and renders vertical or source-aspect clips with subtitles and optional effects.
+O Cadê Clips reaproveita a base open source SupoClip. A aplicação combina frontend Next.js, API FastAPI, worker ARQ, Redis e PostgreSQL. O processamento de vídeo utiliza FFmpeg e serviços/modelos de transcrição e linguagem configuráveis.
 
-The current repository snapshot includes:
-
-- `frontend/`: the main Next.js application
-- `backend/`: the FastAPI API and ARQ worker code
-- Root-level infrastructure files such as `docker-compose.yml`, `init.sql`, `.env.example`, and `start.sh`
-
-## Recommended Reading Paths
-
-For operators:
-
-1. [Setup](./setup.md)
-2. [Configuration](./configuration.md)
-3. [Troubleshooting](./troubleshooting.md)
-
-For developers:
-
-1. [Development](./development.md)
-2. [Architecture](./architecture.md)
-3. [API Reference](./api-reference.md)
-
-For product and support:
-
-1. [App Guide](./app-guide.md)
-2. [Troubleshooting](./troubleshooting.md)
-
-## Existing Documentation Outside `docs/`
-
-This new docs tree replaces the need to hunt across several markdown files, but these older documents still contain useful context:
-
-- [`README.md`](../README.md)
-- [`QUICKSTART.md`](../QUICKSTART.md)
-- [`CLAUDE.md`](../CLAUDE.md)
-- [`REFACTORING_COMPLETE.md`](../REFACTORING_COMPLETE.md)
-- [`backend/REFACTORING_GUIDE.md`](../backend/REFACTORING_GUIDE.md)
+A licença da base é AGPL-3.0. Consulte o arquivo [LICENSE](../LICENSE) e preserve os avisos e obrigações aplicáveis às modificações e à distribuição.
