@@ -103,7 +103,9 @@ Everything beyond this page lives in [`docs/`](docs/README.md). For the Windows-
 
 | Guide | What it covers |
 |---|---|
-| [Teste no Windows](docs/TESTE_WINDOWS.md) | Docker Desktop, local Whisper/LLM setup, first functional test |\n| [Direção do produto](docs/DIRECAO_DO_PRODUTO.md) | Cadê Clips MVP scope and editorial principles |\n| [Setup](docs/setup.md) | Docker-first install, local development, first-run checklist |
+| [Teste no Windows](docs/TESTE_WINDOWS.md) | Docker Desktop, local Whisper/LLM setup, first functional test |
+| [Direção do produto](docs/DIRECAO_DO_PRODUTO.md) | Cadê Clips MVP scope and editorial principles |
+| [Setup](docs/setup.md) | Docker-first install, local development, first-run checklist |
 | [Configuration](docs/configuration.md) | Every environment variable, operating modes, provider options |
 | [App Guide](docs/app-guide.md) | Screens, workflows, admin features, hosted vs self-host |
 | [Architecture](docs/architecture.md) | How the frontend, API, worker, queue, and pipeline fit together |
